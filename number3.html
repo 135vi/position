@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+ 
+header{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid;
+}
+.left-part{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ 
+.left-part, .text-top{
+    margin-left: 10px;
+}
+ 
+.right-part, .text-top{
+    margin-right: 10px;
+    font-size: 20px;
+}
+ 
+.right-part{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+ .mail{
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+    background-position: center;
+    background-image: url(mail.png); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+ }
+ 
+ .account{
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    background-position: center;
+    background-image: url(account.png); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+ }
+ 
+ 
+ 
+.sidebar{
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    
+}
+ 
+ul{
+    margin-top: 20px;
+    padding: 0;
+}
+ 
+li{
+    display: flex;
+    height:40px;
+    margin-left: 20px;
+    list-style-type: none;
+    transition: background-color .2s linear;
+}
+ 
+li:hover{
+    background-color: #8a3f5d;
+}
+ 
+.img{
+    width: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px 30px;
+}
+ 
+.text{
+    line-height: 40px;
+}
+ 
+#incoming{
+    background-image: url(incom.png);
+}
+ 
+#outcoming{
+    background-image: url(outcom.png);
+}
+ 
+#drafts{
+    background-image: url(draft.png);
+}
+ 
+#spam{
+    background-image: url(spam.png);
+}
+ 
+ 
+.table{
+    width: 80%;
+    margin-left: 20%;
+ 
+}
+ 
+table{
+    width: 95%;
+    margin: auto;
+    border-spacing: 0;
+}
+ 
+td{
+ 
+    border-bottom: 1px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+ 
+td:nth-child(1){
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ 
+td:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+ 
+.td_bottom{
+    color: #968887;
+    margin-left: 10px;
+}
+ 
+ 
+.second{
+    display: flex;
+    width: 450px;
+}
+ 
+ 
+.none_img{
+    background-image: none;
+}
+ 
+td:nth-child(3){
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+ 
+.image{
+    width: 25px;
+    height: 25px;
+    background-image: url(star1.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+ 
+.text{
+    white-space: nowrap;
+    width: 120px;
+}
+ 
+.image-red{
+    width: 25px;
+    height: 25px;
+    background-image: url(star2.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+ 
+.image-1{
+    width: 25px;
+    height: 25px;
+    background-image: url(attach_26.png); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+ 
+.none{
+    opacity: 0;
+}
+ 
+@media(max-width: 890px){
+ 
+ .sidebar{
+        width: 100px;
+        
+    }
+ 
+.table{
+    width: 80%;
+    margin-left: 20%;
+    position: relative;
+}
+td:nth-child(2){
+        flex-wrap: wrap;
+    }   
+ 
+.second{
+        flex-direction: column;
+        order: 1;
+        width: 20px;
+    }
+ 
+.td_bottom{
+        margin-left: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+ 
+.td_bottom span{
+        opacity: 0;
+    }
+    
+}
+ 
+@media (max-width: 550px) {
+ 
+header{
+        width: 100%;
+        position: relative;
+     }
+.mail{
+        background-size: 100%;
+        width: 30px;
+        height: 30px;
+        margin-left: 0px;
+     }
+ 
+.account{
+        background-size: 100%;
+        width: 30px;
+        height: 30px;
+        margin-right: 0px;
+     }
+     
+ .sidebar{
+        width: 100px;
+    }
+.text{
+        opacity: 0;
+    }
+ 
+    
+}
+</style>
+<body>
+    <header>
+        <div class="left-part">
+        <div class="mail"></div>
+        <div class="text-top">MY MAIL</div>
+        </div>
+        <div class="right-part">
+        <div class="text-top">user@mymail.com</div>
+        <div class="account"></div>
+        </div>
+        </header>
+        <main>
+         <div class="container">
+        <div class="sidebar">
+         <ul >
+                    
+        <li>
+        <div class="img" id="incoming"></div>
+        <div class="text">Incoming</div>
+    </li>
+    <li>
+        <div class="img" id="outcoming"></div>
+        <div class="text">Outcoming</div>
+    </li>
+    <li>
+        <div class="img" id="drafts"></div>
+        <div class="text">Drafts</div>
+    </li>
+    <li>
+        <div class="img" id="spam"></div>
+        <div class="text">Spam</div>
+                    </li>
+                </ul>
+        
+            </div>
+           <div class="table">
+            <table>
+            <tbody>
+            <tr>
+            <td>
+            <div class="image"></div>
+            </td>
+            <td>
+            <div class="text">me, Alex</div>
+            <div class="second">
+            <div class="td_top">Trip to South America</div>
+            <div class="td_bottom">
+            <span> - </span> Suspendisse ut sapien non arcu rutrum</div>
+        </div>
+            <div class="image-1"></div>
+           </td>
+            <td>12 apr.</td>
+            </tr>
+            <tr>
+            <td>
+            <div class="image"></div>
+            </td>
+            <td>
+            <div class="text">me, John</div>
+            <div class="second">
+            <div class="td_top">Santa Monica trip</div>
+            <div class="td_bottom">
+            <span> - </span> Cras accumsan lacus quis urna ultricies, vel</div>
+        </div>
+            <div class="image-1"></div>
+           </td>
+            <td>12 apr.</td>
+            </tr>
+            <tr>
+            <td>
+            <div class="image"></div>
+            </td>
+            <td>
+            <div class="text">me, John, Alex</div>
+            <div class="second">
+            <div class="td_top">Birthday party</div>
+            <div class="td_bottom">
+            <span> - </span> 20.04.2019</div>
+        </div>
+            <div class="image-1 none"  ></div>
+           </td>
+            <td>11 apr.</td>
+            </tr>
+ 
+            <tr>
+            <td>
+            <div class="image-red"></div>
+            </td>
+            <td>
+            <div class="text">Mari White</div>
+            <div class="second">
+            <div class="td_top">Report(march 2019)</div>
+            <div class="td_bottom none" >
+            <span> - </span> Cras accumsan lacus quis urna ultricies, vel</div>
+        </div>
+            <div class="image-1"></div>
+           </td>
+            <td>10 apr.</td>
+            </tr>
+ 
+            <tr>
+            <td>
+            <div class="image"></div>
+            </td>
+            <td>
+            <div class="text">me, Elena</div>
+            <div class="second">
+            <div class="td_top">Duis semper augue</div>
+            <div class="td_bottom">
+            <span> - </span> Nunc finibus sem vei odio maltis</div>
+        </div>
+            <div class="image-1"></div>
+           </td>
+            <td>10 apr.</td>
+            </tr>
+ 
+            <tr>
+            <td>
+            <div class="image"></div>
+            </td>
+            <td>
+            <div class="text">Bill, John</div>
+            <div class="second">
+            <div class="td_top">Ut congue pursus</div>
+            <div class="td_bottom">
+            <span> - </span> Ut sit amet eros hendrerit, posuere arcu sed</div>
+        </div>
+            <div class="image-1 none"></div>
+           </td>
+            <td>5 apr.</td>
+            </tr>
+ 
+            <tr>
+            <td>
+            <div class="image-red"></div>
+            </td>
+            <td>
+            <div class="text">Stive</div>
+            <div class="second">
+            <div class="td_top">Phasellus quis velit tincidunt</div>
+            <div class="td_bottom none">
+            <span> - </span> Cras accumsan lacus quis urna ultricies, vel</div>
+        </div>
+            <div class="image-1 none"></div>
+           </td>
+            <td>1.apr</td>
+            </tr>
+ 
+            <tr>
+            <td>
+            <div class="image-red"></div>
+            </td>
+            <td>
+            <div class="text">Mari White</div>
+            <div class="second">
+            <div class="td_top">Report(february 2019)</div>
+            <div class="td_bottom none" >
+            <span> - </span> Cras accumsan lacus quis urna ultricies, vel</div>
+        </div>
+            <div class="image-1"></div>
+           </td>
+            <td>10 mar.</td>
+            </tr>
+        </tbody>
+        </table>
+       
+        </div>
+        </div>
+       </main>
+</body>
+</html>
